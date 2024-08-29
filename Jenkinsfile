@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Integration Tests') {
             steps {
-                sh "docker run --rm -v ${WORKSPACE}:/usr/src/app -w /usr/src/app maven:3.8.8-eclipse-temurin-17 mvn clean verify -Denvironment=${WORKSPACE} -Dcucumber.filter.tags=${TAGS} -B -ntp"
+                sh "docker run --rm -v ${WORKSPACE}:/usr/src/app -w /usr/src/app maven:3.8.8-eclipse-temurin-17 mvn clean verify -Denvironment=${ENVIRONMENT} -Dcucumber.filter.tags=${TAGS} -B -ntp"
                 publishHTML(
                         target: [
                                 reportName           : 'Serenity Report',
