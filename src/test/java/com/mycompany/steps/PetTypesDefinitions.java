@@ -29,6 +29,7 @@ public class PetTypesDefinitions {
         environmentVariables = SystemEnvironmentVariables.createEnvironmentVariables();
         BASE_PATH = EnvironmentSpecificConfiguration.from(environmentVariables)
                 .getOptionalProperty("base.uri").orElse("https://reqres.in/api");
+        RestAssured.baseURI = BASE_PATH;
     }
 
     @Given("el cliente configura la URI base")
