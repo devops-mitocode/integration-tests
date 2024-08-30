@@ -1,8 +1,8 @@
 pipeline {
     agent any
     parameters {
-        choice(name: 'ENVIRONMENT', choices: ['default', 'dev', 'soap'], description: 'ENVIRONMENT')
-        string(name: 'TAGS', defaultValue: '', description: 'TAGS (dejar vacío para ejecutar todas las pruebas)')
+        choice(name: 'ENVIRONMENT', choices: ['default', 'dev', 'soap'], description: 'Selecciona el entorno de pruebas')
+        string(name: 'TAGS', defaultValue: '', description: 'Dejar vacío para ejecutar todas las pruebas')
     }
     stages {
         stage('Integration Tests') {
