@@ -29,14 +29,11 @@ public class PetTypesDefinitions {
         environmentVariables = SystemEnvironmentVariables.createEnvironmentVariables();
         BASE_PATH = EnvironmentSpecificConfiguration.from(environmentVariables)
                 .getOptionalProperty("base.uri").orElse("https://reqres.in/api");
-        RestAssured.baseURI = BASE_PATH;
     }
 
     @Given("el cliente configura la URI base")
     public void el_cliente_configura_la_uri_base() {
-//        rest().baseUri(BASE_PATH);
-//        given().baseUri(BASE_PATH);
-        RestAssured.baseURI = BASE_PATH;
+        given().baseUri(BASE_PATH);
     }
 
     @When("el cliente realiza una peticion GET a {string}")

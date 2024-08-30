@@ -8,7 +8,6 @@ import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import net.serenitybdd.model.environment.EnvironmentSpecificConfiguration;
-import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.model.environment.SystemEnvironmentVariables;
 import net.thucydides.model.util.EnvironmentVariables;
 
@@ -26,10 +25,7 @@ public class CalculatorDefinitions {
     public void setUp() {
         environmentVariables = SystemEnvironmentVariables.createEnvironmentVariables();
         BASE_PATH = EnvironmentSpecificConfiguration.from(environmentVariables)
-                .getProperty("environments.soap.base.uri");
-//        rest().given().baseUri(BASE_PATH);
-//        given().baseUri(BASE_PATH);
-//        setDefaultBasePath(BASE_PATH);
+                .getOptionalProperty("environments.soap.base.uri").orElse("https://reqres.in/api");
         RestAssured.baseURI = BASE_PATH;
     }
 
@@ -37,14 +33,13 @@ public class CalculatorDefinitions {
     public void queLosNumerosYEstánListosParaSerSumados(int intA, int intB) throws Exception {
         String requestBody = SoapRequestUtil.createSoapRequest(SoapRequestUtil.Operation.ADD, Map.of("intA", intA, "intB", intB));
         given()
-                .baseUri(BASE_PATH)
                 .header("Content-Type", "text/xml; charset=utf-8")
                 .body(requestBody);
     }
 
     @When("envío una solicitud SOAP a {string}")
     public void envioUnaSolicitudSOAPA(String path) {
-        when()
+            when()
                 .post(path).andReturn();
     }
 
@@ -56,6 +51,5 @@ public class CalculatorDefinitions {
 //        then().statusCode(200);
 //        then().contentType(ContentType.XML);
 //        then().body("Envelope.Body.AddResponse.AddResult.text()", is(String.valueOf(resultado)));
-        expect().statusCode(200);
     }
 }

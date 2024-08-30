@@ -33,13 +33,6 @@ public class OwnersDefinitions {
     private String BASE_PATH;
     String filePath = "src/test/resources/owners-data.csv";
 
-    @Before
-    public void setUp() {
-        environmentVariables = SystemEnvironmentVariables.createEnvironmentVariables();
-        BASE_PATH = EnvironmentSpecificConfiguration.from(environmentVariables)
-                .getProperty("base.uri");
-    }
-
     @Given("el cliente tiene los datos de un nuevo propietario")
     public void elClienteTieneLosDatosDeUnNuevoPropietario(String docString) {
         Serenity.setSessionVariable("owner").to(docString);
