@@ -18,7 +18,7 @@ pipeline {
                             reportFiles          : 'index.html',
                             keepAll              : true,
                             alwaysLinkToLastBuild: true,
-                            allowMissing         : false
+                            allowMissing         : true
                     ]
                 )
             }
