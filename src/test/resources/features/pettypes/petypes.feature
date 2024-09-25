@@ -32,7 +32,8 @@ Feature: Gestionar tipos de mascotas
 
   @registrarTipoMascota
   Scenario: Registrar un nuevo tipo de mascota
-    Given el cliente configura el recurso "/pettypes" con los datos
+    Given el cliente configura la URI base
+    And el cliente configura el recurso "/pettypes" con los datos
        """
          {
              "name": "rabbit"
@@ -44,7 +45,8 @@ Feature: Gestionar tipos de mascotas
 
   @actualizarTipoMascota
   Scenario: Actualizar un tipo de mascota
-    Given el cliente configura el recurso "/pettypes/{id}" con id 9 usando los datos
+    Given el cliente configura la URI base
+    And el cliente configura el recurso "/pettypes/{id}" con id 9 usando los datos
        """
          {
              "name": "abc"
@@ -56,7 +58,8 @@ Feature: Gestionar tipos de mascotas
 
   @eliminarTipoMascota
   Scenario: Eliminar un tipo de mascota
-    Given el cliente configura el recurso "/pettypes/{id}" con id 2
+    Given el cliente configura la URI base
+    And el cliente configura el recurso "/pettypes/{id}" con id 2
     When el cliente elimina el tipo de mascota
     Then el servidor debe de responder con un status 204
     And el cuerpo de la respuesta debe estar vacío
