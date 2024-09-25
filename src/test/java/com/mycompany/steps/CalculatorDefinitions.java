@@ -21,13 +21,13 @@ public class CalculatorDefinitions {
     private EnvironmentVariables environmentVariables;
     private String BASE_PATH;
 
-    @Before
-    public void setUp() {
-        environmentVariables = SystemEnvironmentVariables.createEnvironmentVariables();
-        BASE_PATH = EnvironmentSpecificConfiguration.from(environmentVariables)
-                .getOptionalProperty("environments.soap.base.uri").orElse("https://reqres.in/api");
-        RestAssured.baseURI = BASE_PATH;
-    }
+//    @Before
+//    public void setUp() {
+//        environmentVariables = SystemEnvironmentVariables.createEnvironmentVariables();
+//        BASE_PATH = EnvironmentSpecificConfiguration.from(environmentVariables)
+//                .getOptionalProperty("environments.soap.base.uri").orElse("https://reqres.in/api");
+//        RestAssured.baseURI = BASE_PATH;
+//    }
 
     @Given("que los números {int} y {int} están listos para ser sumados")
     public void queLosNumerosYEstánListosParaSerSumados(int intA, int intB) throws Exception {
