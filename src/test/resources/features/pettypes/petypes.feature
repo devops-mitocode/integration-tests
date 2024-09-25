@@ -1,3 +1,4 @@
+@pettypes
 Feature: Gestionar tipos de mascotas
 
   @listarTiposMascotas
