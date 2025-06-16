@@ -8,7 +8,6 @@ import org.springframework.samples.petclinic.model.PetType;
 import org.springframework.samples.petclinic.service.ClinicService;
 import org.springframework.samples.petclinic.util.EntityUtils;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.TestPropertySource;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
