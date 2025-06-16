@@ -20,16 +20,16 @@ pipeline {
             steps {
                 script {
                     def tagsOption = TAGS?.trim() ? "-Dcucumber.filter.tags='${TAGS}'" : ""
-                    sh 'mvn clean test -B -ntp'
+                    sh 'mvn clean test -ntp'
                     junit 'target/surefire-reports/*.xml'
 //                    mvn test -Dtest=ClinicServiceTests
                 }
             }
         }
     }
-    post {
-        always {
-            cleanWs()
-        }
-    }
+//    post {
+//        always {
+//            cleanWs()
+//        }
+//    }
 }
