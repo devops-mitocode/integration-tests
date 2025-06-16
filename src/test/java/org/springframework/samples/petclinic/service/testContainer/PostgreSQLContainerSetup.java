@@ -14,6 +14,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 
 
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 @Testcontainers
 public abstract class PostgreSQLContainerSetup {
@@ -32,7 +33,7 @@ public abstract class PostgreSQLContainerSetup {
     static final PostgreSQLContainer<?> postgreSQLContainer = createPostgreSQLContainer();
 
     static {
-        System.out.println("🐳 TESTCONTAINER SETUP INICIADO");
+        LOGGER.info("🐳 TESTCONTAINER SETUP INICIADO");
     }
 
     private static PostgreSQLContainer<?> createPostgreSQLContainer() {

@@ -16,7 +16,7 @@ import java.util.Collection;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-//@ActiveProfiles({"spring-data-jpa", "postgres"})
+@ActiveProfiles({"spring-data-jpa", "postgres"})
 class ClinicServiceTests extends PostgreSQLContainerSetup {
 
     @Autowired
@@ -26,9 +26,10 @@ class ClinicServiceTests extends PostgreSQLContainerSetup {
     private ClinicService clinicService;
 
     @Test
-    void shouldFindPetTypeById() {
+    void shouldFindPetTypeById() throws InterruptedException {
         PetType petType = this.clinicService.findPetTypeById(1);
         assertThat(petType.getName()).isEqualTo("cat");
+        Thread.sleep(10000);
     }
 
     @Test
