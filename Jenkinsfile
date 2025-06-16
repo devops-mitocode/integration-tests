@@ -11,19 +11,14 @@ pipeline {
         timeout(time: 10, unit: 'MINUTES')
         ansiColor('xterm')
     }
-
-//     triggers {
-//         cron('H/30 * * * *')
-//     }
+    triggers {
+     cron('H/30 * * * *')
+    }
     stages {
         stage('Integration Tests') {
             steps {
-                script {
-                    def tagsOption = TAGS?.trim() ? "-Dcucumber.filter.tags='${TAGS}'" : ""
-                    sh 'mvn clean test -ntp'
-                    junit 'target/surefire-reports/*.xml'
-//                    mvn test -Dtest=ClinicServiceTests
-                }
+                sh 'mvn clean test -Dstyle.color=always -ntp'
+                junit 'target/surefire-reports/*.xml'
             }
         }
     }
