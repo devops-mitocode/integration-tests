@@ -23,16 +23,7 @@ pipeline {
             }
             post {
                 success {
-                    publishHTML(
-                            target: [
-                                    reportName           : 'Integration Tests Report',
-                                    reportDir            : 'target/site/serenity',
-                                    reportFiles          : 'index.html',
-                                    keepAll              : true,
-                                    alwaysLinkToLastBuild: true,
-                                    allowMissing         : false
-                            ]
-                    )
+                    junit 'target/surefire-reports/*.xml'
                 }
             }
         }
