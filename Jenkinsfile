@@ -15,13 +15,7 @@ pipeline {
             steps {
                 script {
                     def tagsOption = TAGS?.trim() ? "-Dcucumber.filter.tags='${TAGS}'" : ""
-                    sh """
-                        docker run --rm \
-                          -v \$(pwd):/workspace \
-                          -w /workspace \
-                          maven:3.9.9-eclipse-temurin-17-alpine \
-                          mvn clean test -B -ntp
-                    """
+                    sh 'mvn clean test -B -ntp'
                 }
             }
             post {
