@@ -47,11 +47,6 @@ public abstract class PostgreSQLContainerSetup {
             .withDatabaseName(DATABASE_NAME)
             .withUsername(DATABASE_USER)
             .withPassword(DATABASE_PASSWORD)
-//            .withNetworkMode(networkName)
-//            .withCreateContainerCmdModifier(cmd -> {
-//                cmd.withName(containerName);
-//                cmd.withAliases(NETWORK_ALIAS);
-//            })
             .waitingFor(createWaitStrategy())
             .withStartupTimeout(Duration.ofMinutes(3));
     }
