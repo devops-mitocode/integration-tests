@@ -28,7 +28,7 @@ class ClinicServiceTests extends PostgreSQLContainerSetup {
     @Test
     void shouldFindPetTypeById() {
         PetType petType = this.clinicService.findPetTypeById(1);
-        assertThat(petType.getName()).isEqualTo("cat");
+        assertThat(petType.getName()).isEqualTo("catt");
     }
 
     @Test
