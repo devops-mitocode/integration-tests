@@ -17,7 +17,7 @@ pipeline {
                           -v \$(pwd):/workspace \
                           -w /workspace \
                           maven:3.8.8-eclipse-temurin-17-alpine \
-                          mvn clean verify -Denvironment=${params.ENVIRONMENT} ${tagsOption} -B -ntp
+                          mvn clean test -B -ntp
                     """
                 }
             }
