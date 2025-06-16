@@ -22,6 +22,7 @@ pipeline {
                     def tagsOption = TAGS?.trim() ? "-Dcucumber.filter.tags='${TAGS}'" : ""
                     sh 'mvn clean test -B -ntp'
                     junit 'target/surefire-reports/*.xml'
+//                    mvn test -Dtest=ClinicServiceTests
                 }
             }
         }
