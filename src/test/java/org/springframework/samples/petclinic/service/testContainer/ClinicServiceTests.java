@@ -25,8 +25,7 @@ class ClinicServiceTests extends PostgreSQLContainerSetup {
     private ClinicService clinicService;
 
     @Test
-    void shouldFindPetTypeById() throws InterruptedException {
-        Thread.sleep(120000);
+    void shouldFindPetTypeById() {
         PetType petType = this.clinicService.findPetTypeById(1);
         assertThat(petType.getName()).isEqualTo("cat");
     }
