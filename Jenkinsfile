@@ -16,7 +16,7 @@ pipeline {
                         docker run --rm \
                           -v \$(pwd):/workspace \
                           -w /workspace \
-                          maven:3.8.8-eclipse-temurin-17-alpine \
+                          maven:3.9.9-eclipse-temurin-17-alpine \
                           mvn clean test -B -ntp
                     """
                 }
